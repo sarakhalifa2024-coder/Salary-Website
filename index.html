@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Enterprise Salary App | Admin & Employee Portal</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<div class="app-container">
+    <div class="logo-area">
+        <div class="logo-icon">💰</div>
+        <div class="logo-text">
+            <h1>Salary App</h1>
+            <p>Powered by live FX rates | Secure payroll</p>
+        </div>
+    </div>
+
+    <div id="logoutRow" class="logout-bar hidden">
+        <button id="logoutBtn" class="logout-btn">🚪 Logout</button>
+    </div>
+
+    <div class="main-content">
+        <!-- LOGIN  -->
+        <div id="loginSection">
+            <div class="login-card">
+                <h2>🔐 Login</h2>
+                <div class="input-group">
+                    <label>👤 Type Your Name</label>
+                    <input type="text" id="loginName" placeholder="e.g., Admin or Ahmed">
+                </div>
+                <div class="input-group">
+                    <label>🔒 Type Your Password</label>
+                    <input type="password" id="loginPassword" placeholder="••••••">
+                </div>
+                <button id="doLoginBtn" class="login-btn">Login ➡️</button>
+                <div id="loginError" class="error-msg"></div>
+                <p style="font-size:0.7rem; margin-top:1rem;">Demo: Admin/123 | Employee: any name + any password</p>
+            </div>
+        </div>
+
+        <!-- SALARY -->
+        <div id="salaryDashboard" class="hidden">
+            <div class="salary-form">
+                <div class="form-row">
+                    <div class="form-field">
+                        <label>📛 Employee Name</label>
+                        <input type="text" id="empName" placeholder="e.g., Ali">
+                    </div>
+                    <div class="form-field">
+                        <label>💰 Basic Salary (USD)</label>
+                        <input type="number" id="basicSalary" step="any" value="5000">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-field">
+                        <label>🎁 Bonus (USD)</label>
+                        <input type="number" id="bonusAmount" step="any" value="0">
+                    </div>
+                    <div class="form-field">
+                        <label>⚠️ Penalty (USD)</label>
+                        <input type="number" id="penaltyAmount" step="any" value="0">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-field">
+                        <label>⏱️ Extra Hours</label>
+                        <input type="number" id="extraHours" step="any" value="0">
+                    </div>
+                    <div class="form-field">
+                        <label>💼 Job Title</label>
+                        <select id="jobTitle">
+                            <option value="Operator">Operator (1x)</option>
+                            <option value="Salesman">Salesman (1.5x)</option>
+                            <option value="Admin">Admin (2x)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-field">
+                        <label>🌍 Currency Display</label>
+                        <select id="currencySelect">
+                            <option value="USD">USD ($)</option>
+                            <option value="SAR">SAR (﷼)</option>
+                            <option value="EUR">EUR (€)</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <!-- empty -->
+                    </div>
+                </div>
+
+                <div class="buttons-container">
+                    <button id="addEmployeeBtn" class="btn-add">➕ Add Employee</button>
+                    <button id="clearEmployeesBtn" class="btn-clear">🗑️ Clear Employees</button>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <table id="salaryTable">
+                    <thead>
+                        <tr>
+                            <th>Name</th><th>Basic</th><th>Bonus</th><th>Penalty</th>
+                            <th>Extra Hours</th><th>Hour Value</th><th>Extra Total</th>
+                            <th>Gross Salary</th><th>Tax Rate</th><th>Taxes Value</th><th>Net Salary</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                        <tr><td colspan="11" style="text-align:center;">✨ No employees added yet</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p style="margin-top:1rem; font-size:0.7rem; text-align:center;">✅ Calculations: hourRate = Basic / 160 | Operator(1x) Salesman(1.5x) Admin(2x) | Tax 20%</p>
+        </div>
+    </div>
+    <footer>© Salary App — Async Currency API | Job Title OT Rules</footer>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
